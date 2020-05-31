@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">appMobile</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZGllZ29jaG9saSIsImEiOiJja2FyY3dxbzUwaXdiMzRuMDRpMHlkNmY1In0.HU7BRHun3uPl2KkLDPWZPA</string>
 </resources>

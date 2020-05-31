@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { PermissionsAndroid, Text } from 'react-native'
-import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
-import MapViewDirections from 'react-native-maps-directions'
+import {
+  PermissionsAndroid,
+  Text,
+  NativeModules,
+  TouchableOpacity,
+} from 'react-native'
 import Geolocation from 'react-native-geolocation-service'
 import { logCoordenadas } from '../../views/LogView'
+import MapBox from '../mapBox/MapBox'
 
 const MapaComponent = (props) => {
   const { style = undefined } = props
-  const origin = { latitude: 37.3318456, longitude: -122.0296002 }
-  const destination = { latitude: 37.771707, longitude: -122.4053769 }
-  const GOOGLE_MAPS_APIKEY = 'AIzaSyDHH7iMuZ2IuXrjmh_T-Xv21Oz7d2hsrh0'
 
   const [hasLocationPermision, setHasLocationPermision] = useState(false)
   const [userPossition, setUserPossition] = useState({
@@ -27,7 +28,7 @@ const MapaComponent = (props) => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           })
-          console.log(logCoordenadas)
+          // console.log(logCoordenadas)
           setUserPossition({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -62,40 +63,15 @@ const MapaComponent = (props) => {
     }
   }
 
-  const map = () => {
-    return (
-      <MapView
-        provider={PROVIDER_GOOGLE}
-        region={{
-          latitude: userPossition.latitude || 0,
-          longitude: userPossition.longitude || 0,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        style={{ ...props, flex: 1 }}
-      >
-        <MapViewDirections
-          origin={origin}
-          destination={destination}
-          apikey={GOOGLE_MAPS_APIKEY}
-        />
-        <Marker
-          coordinate={{
-            latitude: userPossition.latitude || 0,
-            longitude: userPossition.longitude || 0,
-          }}
-          title={'marker.title'}
-          description={'marker.description'}
-        />
-        <Text>
-          {userPossition.latitude} {userPossition.longitude}
-        </Text>
-      </MapView>
-    )
-  }
-
   return userPossition.latitude && userPossition.longitude ? (
-    map()
+    <>
+      <Text>
+        {userPossition.latitude} {userPossition.longitude}
+      </Text>
+      <TouchableOpacity onPress={() => MapBox.navigateToHome()}>
+        <Text>Chamar Módulo Nativo</Text>
+      </TouchableOpacity>
+    </>
   ) : (
     <Text
       style={{
