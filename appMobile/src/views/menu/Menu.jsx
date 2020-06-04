@@ -12,7 +12,6 @@ const Menu = (props) => {
         search: searchState,
       })
   }
-
   return (
     <View
       style={{

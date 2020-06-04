@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import {
-  PermissionsAndroid,
-  Text,
-  NativeModules,
-  TouchableOpacity,
-} from 'react-native'
+import { PermissionsAndroid } from 'react-native'
+import MapaComponent from './components/MapaComponent'
 import Geolocation from 'react-native-geolocation-service'
-import { logCoordenadas } from '../../views/LogView'
-import MapBox from '../mapBox/MapBox'
 
-const MapaComponent = (props) => {
-  const { style = undefined } = props
-
+const Mapa = () => {
   const [hasLocationPermision, setHasLocationPermision] = useState(false)
   const [userPossition, setUserPossition] = useState({
-    latitude: false,
-    longitude: false,
+    latitude: -49.3449255,
+    longitude: -25.4226502,
   })
+
+  useEffect(() => {
+    console.log(userPossition)
+  }, [userPossition])
 
   useEffect(() => {
     if (!hasLocationPermision) verifyLocationPermission()
@@ -24,10 +20,6 @@ const MapaComponent = (props) => {
     if (hasLocationPermision) {
       Geolocation.watchPosition(
         (position) => {
-          logCoordenadas.push({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          })
           // console.log(logCoordenadas)
           setUserPossition({
             latitude: position.coords.latitude,
@@ -39,7 +31,7 @@ const MapaComponent = (props) => {
         },
         {
           enableHighAccuracy: true, // É um booleano que representa se é necessário usar GPS ou não. Se definido como verdadeiro, uma posição GPS será solicitada. Se definido como falso, um local WIFI será solicitado.
-          maximumAge: 0, // 1000 = 1 segundos
+          maximumAge: 1000, // 1000 = 1 segundos
           timeout: 1000, // 1000 = 1 segundos
           distanceFilter: 0, // A distância mínima do local anterior a exceder antes de retornar um novo local. Defina como 0 para não filtrar locais. O padrão é 100m.
         }
@@ -63,25 +55,12 @@ const MapaComponent = (props) => {
     }
   }
 
-  return userPossition.latitude && userPossition.longitude ? (
-    <>
-      <Text>
-        {userPossition.latitude} {userPossition.longitude}
-      </Text>
-      <TouchableOpacity onPress={() => MapBox.navigateToHome()}>
-        <Text>Chamar Módulo Nativo</Text>
-      </TouchableOpacity>
-    </>
-  ) : (
-    <Text
-      style={{
-        justifyContent: 'center',
-        textAlign: 'center',
-      }}
-    >
-      Carregando ...
-    </Text>
+  return (
+    <MapaComponent
+      latitude={userPossition.latitude}
+      longitude={userPossition.longitude}
+    />
   )
 }
 
-export default MapaComponent
+export default Mapa

@@ -17,7 +17,7 @@ export const headerConfig = {
   headerMode: 'screen' /* float, none, screen */,
   headerStyle: {
     backgroundColor: colorTheme,
-    // borderBottomEndRadius: 100,
+    borderBottomEndRadius: 0,
   },
   headerTintColor: '#fff',
   headerTitleStyle: {

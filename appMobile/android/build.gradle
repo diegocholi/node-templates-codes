@@ -10,7 +10,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        mavenCentral()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:3.5.2")
@@ -22,9 +21,7 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
         mavenLocal()
-        maven { url 'https://mapbox.bintray.com/mapbox' }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")

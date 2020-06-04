@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 import SearchBottom from '../../components/searchBottom/SearchBottom'
-import MapaComponent from '../../components/mapa/MapaComponent'
+import Mapa from '../../components/mapa/Mapa'
 
 const Home = (props) => {
   const { navigation } = props
@@ -15,14 +15,20 @@ const Home = (props) => {
   }
 
   return (
-    <>
-      <MapaComponent />
+    <View
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+      }}
+    >
+      <Mapa />
       <SearchBottom
         value={searchState}
         setValue={setSearchState}
         onPress={handleSearch}
       />
-    </>
+    </View>
   )
 }
 
