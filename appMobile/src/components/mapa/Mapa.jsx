@@ -55,12 +55,7 @@ const Mapa = () => {
     }
   }
 
-  return (
-    <MapaComponent
-      latitude={userPossition.latitude}
-      longitude={userPossition.longitude}
-    />
-  )
+  return <MapaComponent userPossition={userPossition} />
 }
 
 export default Mapa

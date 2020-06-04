@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 })
 
 const MapaComponent = (props) => {
-  const { latitude, longitude } = props
+  const { userPossition } = props
   useEffect(() => {
     MapboxGL.setTelemetryEnabled(false)
   }, [])
@@ -37,8 +37,8 @@ const MapaComponent = (props) => {
       attributionEnabled={true}
       // styleURL={MapboxGL.StyleURL.Dark}
     >
+      <RenderAnnotations userPossition={userPossition} />
       <RenderCamera />
-      <RenderAnnotations latitude={longitude} longitude={latitude} />
     </MapboxGL.MapView>
   )
 }

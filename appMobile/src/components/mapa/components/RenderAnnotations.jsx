@@ -3,7 +3,8 @@ import { View, StyleSheet } from 'react-native'
 import MapboxGL from '@react-native-mapbox-gl/maps'
 
 const RenderAnnotations = (props) => {
-  const { latitude, longitude } = props
+  const { userPossition } = props
+
   const styles = StyleSheet.create({
     annotationContainer: {
       width: 30,
@@ -25,7 +26,7 @@ const RenderAnnotations = (props) => {
   return (
     <MapboxGL.PointAnnotation
       id='rocketseat'
-      coordinate={[longitude, latitude]}
+      coordinate={[userPossition.longitude, userPossition.latitude]}
     >
       <View style={styles.annotationContainer}>
         <View style={styles.annotationFill} />
