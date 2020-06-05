@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, SafeAreaView } from 'react-native'
 import SearchBottom from '../../components/searchBottom/SearchBottom'
 
 const Menu = (props) => {
@@ -12,8 +12,9 @@ const Menu = (props) => {
         search: searchState,
       })
   }
+
   return (
-    <View
+    <SafeAreaView
       style={{
         justifyContent: 'center',
         alignItems: 'center',
@@ -27,7 +28,7 @@ const Menu = (props) => {
         setValue={setSearchState}
         onPress={handleSearch}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 

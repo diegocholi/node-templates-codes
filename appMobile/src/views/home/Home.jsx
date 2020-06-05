@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import SearchBottom from '../../components/searchBottom/SearchBottom'
 import Mapa from '../../components/mapa/Mapa'
 
@@ -15,20 +15,14 @@ const Home = (props) => {
   }
 
   return (
-    <View
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-      }}
-    >
+    <SafeAreaView>
       <Mapa />
       <SearchBottom
         value={searchState}
         setValue={setSearchState}
         onPress={handleSearch}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 

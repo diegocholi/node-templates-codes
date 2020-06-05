@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import RenderCamera from './RenderCamera'
 import RenderAnnotations from './RenderAnnotations'
 import MapboxGL from '@react-native-mapbox-gl/maps'
@@ -7,8 +7,8 @@ import MapboxGL from '@react-native-mapbox-gl/maps'
 MapboxGL.setAccessToken(
   'pk.eyJ1IjoiZGllZ29jaG9saSIsImEiOiJja2FyY3dxbzUwaXdiMzRuMDRpMHlkNmY1In0.HU7BRHun3uPl2KkLDPWZPA'
 )
-
 MapboxGL.setConnected(true)
+
 const styles = StyleSheet.create({
   page: {
     justifyContent: 'center',
@@ -31,15 +31,17 @@ const MapaComponent = (props) => {
   }, [])
 
   return (
-    <MapboxGL.MapView
-      style={styles.container}
-      logoEnabled={false}
-      attributionEnabled={true}
-      // styleURL={MapboxGL.StyleURL.Dark}
-    >
-      <RenderAnnotations userPossition={userPossition} />
-      <RenderCamera />
-    </MapboxGL.MapView>
+    <SafeAreaView>
+      <MapboxGL.MapView
+        style={styles.container}
+        logoEnabled={false}
+        attributionEnabled={true}
+        // styleURL={MapboxGL.StyleURL.Dark}
+      >
+        <RenderAnnotations userPossition={userPossition} />
+        <RenderCamera userPossition={userPossition} />
+      </MapboxGL.MapView>
+    </SafeAreaView>
   )
 }
 
