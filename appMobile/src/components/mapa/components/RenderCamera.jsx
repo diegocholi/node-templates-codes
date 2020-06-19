@@ -9,13 +9,9 @@ const RenderCamera = (props) => {
       <MapboxGL.Camera
         zoomLevel={15}
         followUserLocation
-        followUserMode='course'
-        centerCoordinate={[
-          userPossition.longitude ? userPossition.longitude : 0,
-          userPossition.latitude ? userPossition.latitude : 0,
-        ]}
+        followUserMode='compass'
       />
-      {/* <MapboxGL.UserLocation visible={false} /> */}
+      <MapboxGL.UserLocation visible={true} />
     </>
   )
 }

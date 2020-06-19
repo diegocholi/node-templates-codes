@@ -1,0 +1,19 @@
+{
+  "startApplication": "Starting Application ...",
+  "startCoreApilication": "Starting application core ...",
+  "startDb": "Connecting to the database ...",
+  "givenInput": "Saved user!",
+  "erroConnectionDb": "Error connecting to database!",
+  "erroConectionServer": "Error communicating with server",
+  "erroUserNotFind": "Error user not found",
+  "erroUserPassword": "User and password do not match",
+  "noToken": "No token provided",
+  "tokenError": "Token Error!",
+  "tokenMalFormated": "Token malformated",
+  "tokenInvalid": "Token invalid",
+  "erroEmail": "Email invalid",
+  "emailAlreadyRegistered": "E-mail already registered",
+  "emailSent": "Email sent ",
+  "connectedThreadId": "Connected, threadId: ",
+  "errorConnecting": "error connecting"
+}

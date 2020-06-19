@@ -1,0 +1,13 @@
+{
+    "hostConfig": {
+        "host": "smtp.mailtrap.io",
+        "port": 2525,
+        "user": "d3b722b54bedae",
+        "pass": "d235ae9548a33c"
+    },
+    "mailOptions": {
+        "from": "youremail@gmail.com",
+        "subject": "Email de recuperação de conta",
+        "text": "Você esqueceu sua senha? não tem problema use o token para reiniciar sua senha: "
+    }
+}

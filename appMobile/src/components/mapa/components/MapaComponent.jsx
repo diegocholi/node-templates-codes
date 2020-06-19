@@ -38,7 +38,6 @@ const MapaComponent = (props) => {
         attributionEnabled={true}
         // styleURL={MapboxGL.StyleURL.Dark}
       >
-        <RenderAnnotations userPossition={userPossition} />
         <RenderCamera userPossition={userPossition} />
       </MapboxGL.MapView>
     </SafeAreaView>

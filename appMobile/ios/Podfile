@@ -79,6 +79,8 @@ target 'appMobile' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
+  pod 'react-native-sqlite-storage', :path => '../node_modules/react-native-sqlite-storage'
+
   target 'appMobileTests' do
     inherit! :complete
     # Pods for testing

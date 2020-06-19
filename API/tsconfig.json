@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./dist/src",
+    "lib": ["dom", "esnext"],
+    "module": "commonjs",
+    "strict": true,
+    "target": "es5",
+    // opcionais, mas recomendados
+    // quase um "ESLint" básico
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true
+  }
+}
