@@ -1,0 +1,23 @@
+{
+  "name": "tracking-io",
+  "version": "1.0.0",
+  "description": "Módulo de rastreamento via socket",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Diego Choli Conceicão",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "socket.io": "^2.3.0",
+    "sucrase": "^3.15.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "nodemon": "^2.0.4"
+  }
+}
