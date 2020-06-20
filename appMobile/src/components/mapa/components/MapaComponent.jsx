@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, SafeAreaView } from 'react-native'
 import RenderCamera from './RenderCamera'
-import RenderAnnotations from './RenderAnnotations'
 import MapboxGL from '@react-native-mapbox-gl/maps'
 
 MapboxGL.setAccessToken(

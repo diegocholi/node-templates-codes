@@ -6,14 +6,14 @@ var http = require('http').Server(app)
 var io = require('socket.io')(http)
 
 // cria uma rota para fornecer o arquivo index.html
-app.get('/', function (req, res) {
+app.get('/chat', function (req, res) {
   res.sendFile(__dirname + '/index.html')
 })
 
 // sempre que o socketio receber uma conexão vai devoltar realizar o broadcast dela
 io.on('connection', function (socket) {
-  socket.on('chat message', function (msg) {
-    io.emit('chat message', msg)
+  socket.on('tracking', function (msg) {
+    io.emit('tracking', msg)
   })
 })
 

@@ -4,16 +4,23 @@ import MapaComponent from './components/MapaComponent'
 import GeolocationComponent from '../geolocation/GeolocationComponent'
 import LocalizacaoService from '../../database/sql-lite/service/LocalizacaoService'
 
+import socketIOClient from 'socket.io-client'
+const ENDPOINT = 'http://192.168.100.8:3030'
+
 const Mapa = () => {
   const [userPossition, setUserPossition] = useState({})
+  const socket = socketIOClient(ENDPOINT)
 
   useEffect(() => {
-    if (userPossition.latitude && userPossition.longitude)
+    if (userPossition.latitude && userPossition.longitude) {
       LocalizacaoService.addData({ ...userPossition })
 
-    LocalizacaoService.findAll().then((rows) => {
-      console.log(rows.raw())
-    })
+      LocalizacaoService.findAll().then((rows) => {
+        console.log(rows.raw())
+      })
+
+      socket.emit('tracking', JSON.stringify(userPossition))
+    }
   }, [userPossition])
 
   return (
