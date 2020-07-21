@@ -11,8 +11,9 @@ app.get('/chat', function (req, res) {
 })
 
 // sempre que o socketio receber uma conexão vai devoltar realizar o broadcast dela
-io.on('connection', function (socket) {
-  socket.on('tracking', function (msg) {
+io.on('connection', (socket) => {
+  socket.on('tracking', (msg) => {
+    console.log(msg)
     io.emit('tracking', msg)
   })
 })
