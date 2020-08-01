@@ -5,7 +5,7 @@ import GeolocationComponent from '../geolocation/GeolocationComponent'
 import LocalizacaoService from '../../database/sql-lite/service/LocalizacaoService'
 
 import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'http://192.168.100.38:4040'
+const ENDPOINT = 'http://192.168.100.20:4040'
 
 const Mapa = () => {
   const [userPossition, setUserPossition] = useState({})
@@ -17,6 +17,25 @@ const Mapa = () => {
 
       LocalizacaoService.findAll().then((rows) => {
         console.log(rows.raw())
+      })
+
+      // Cadastrando client
+      var username = 'Mobile'
+      socket.emit('register', username)
+
+      /*Enviando mensagem direcionada*/
+      var username = 'Web'
+      var message = 'Enviando mensagem para a Web'
+      socket.emit('private_chat', {
+        to: username,
+        message: message,
+      })
+
+      /*Recebendo mensagem direcionada*/
+      socket.on('private_chat', function (data) {
+        var username = data.username
+        var message = data.message
+        console.log(username + ': ' + message)
       })
 
       socket.emit('tracking', JSON.stringify(userPossition))

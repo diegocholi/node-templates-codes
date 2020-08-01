@@ -10,8 +10,32 @@ app.get('/chat', function (req, res) {
   res.sendFile(__dirname + '/index.html')
 })
 
+var connectedUsers = {}
+
 // sempre que o socketio receber uma conexão vai devoltar realizar o broadcast dela
 io.on('connection', (socket) => {
+  /*Register connected user*/
+  socket.on('register', function (username) {
+    socket.username = username
+    connectedUsers[username] = socket
+  })
+
+  /*Private chat*/
+  socket.on('private_chat', function (data) {
+    const to = data.to,
+      message = data.message
+
+    if (connectedUsers.hasOwnProperty(to)) {
+      connectedUsers[to].emit('private_chat', {
+        //The sender's username
+        username: socket.username,
+
+        //Message sent to receiver
+        message: message,
+      })
+    }
+  })
+
   socket.on('tracking', (msg) => {
     console.log(msg)
     io.emit('tracking', msg)

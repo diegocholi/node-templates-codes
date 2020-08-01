@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import mapboxgl from 'mapbox-gl'
 
 import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'http://192.168.100.38:4040'
+const ENDPOINT = 'http://127.0.0.1:4040'
 
 const styles = {
   width: '100vw',
@@ -24,6 +24,25 @@ const Mapa = () => {
 
   useEffect(() => {
     if (!map) initializeMap({ setMap, mapContainer })
+    // Cadastrando client
+    var username = 'Web'
+    socket.emit('register', username)
+
+    /*Enviando mensagem direcionada*/
+    var username = 'Mobile'
+    var message = 'Enviando mensagem para a Mobile teste2'
+    socket.emit('private_chat', {
+      to: username,
+      message: message,
+    })
+
+    /*Recebendo mensagem direcionada*/
+    socket.on('private_chat', function (data) {
+      var username = data.username
+      var message = data.message
+      console.log(username + ': ' + message)
+    })
+
     socket.on('tracking', (request) => {
       setCoords(JSON.parse(request))
     })
