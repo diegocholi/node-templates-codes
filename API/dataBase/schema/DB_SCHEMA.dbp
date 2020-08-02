@@ -1,11 +1,13 @@
--,21,PostgreSQL
+-,21,MySQL
 1,usuario,,40,392,1,
-2,X,id_user,Integer," "," ",X," "," "
+2,X,id_usuario,Integer," "," ",X," "," "
 2," ",nome,Varchar,100," "," "," "," "
 2," ",email,Varchar,100," ",X," "," "
 2," ",senha,Varchar,100," "," "," "," "
 2," ",login_at,Date," "," "," "," "," "
+2," ",websocket_id,Integer," "," "," "," "," "
 2,,id_tipo_usuario,Integer,,,X," "," ",11
+2,,websocket_id_to,Integer,,,,,
 1,tipo_usuario,,40,64,2,
 2,X,id_tipo_usuario,Integer,,,X," "," "
 2," ",nome,Varchar,15,," "," "," "
@@ -13,17 +15,17 @@
 2,X,id_historico_localizacao,Integer," "," ",X," "," "
 2," ",latitude,Char,15," "," "," "," "
 2," ",longitude,Char,15," "," "," "," "
-2,,id_user,Integer," "," ",X," "," ",14
+2,,id_usuario,Integer," "," ",X," "," ",14
 1,perguntas_diario_bordo,,272,936,13,
 2,X,id_perguntas_diario_bordo,Integer," "," ",X," "," "
 2," ",pergunta,Char,10," "," "," "," "
-2,,id_user,Integer," "," ",X," "," ",20
-2," ",delete_at,Date," "," "," ",,
-2,,inputType,Varchar,10,,,,
-2," ",delete_by,Integer," "," "," ",,
-2," ",update_at,Date," "," "," ",,
-2," ",update_by,Integer," "," "," ",,
+2," ",delete_at,Date," "," "," "
+2,,inputType,Varchar,10
+2," ",delete_by,Integer," "," "," "
+2," ",update_at,Date," "," "," "
+2," ",update_by,Integer," "," "," "
 2,,id_caraga,Integer,,,X,,,23
+2,,id_usuario,Integer," "," ",X," "," ",20
 1,carga,,456,128,15,
 2,X,id_carga,Integer," "," ",X," "," "
 2," ",latidude_origem,Char,15," "," "," "," "
@@ -32,23 +34,23 @@
 2," ",longitude_destino,Char,15," "," "," "," "
 2," ",status,Char,10," "," "," "," "
 2," ",id_caminhoneiro,Integer," "," "," "," "," "
-2,,id_user,Integer," "," ",X," "," ",17
-2,,update_at,Date,,,
-2,,update_by,Integer,,,
-2,,delete_at,Date,,,
-2,,delete_by,Integer,,,
+2,,update_at,Date
+2,,update_by,Integer
+2,,delete_at,Date
+2,,delete_by,Integer
 2,,id_caraga,Integer,,,X,,,22
+2,,id_usuario,Integer," "," ",X," "," ",17
 1,respostas_diario_bordo,,416,496,16,
 2,X,id_respostas_diario_bordo,Integer," "," ",X," "," "
 2," ",resposta,Varchar,1000," "," "," "," "
 2,,id_perguntas_diario_bordo,Integer," "," ",X," "," ",18
-2,,id_user,Integer," "," ",X," "," ",19
-2,,delete_at,Date,,,
-2,,delete_by,Integer,,,
-2,,update_at,Date,,,
-2,,update_by,Integer,,,
+2,,delete_at,Date
+2,,delete_by,Integer
+2,,update_at,Date
+2,,update_by,Integer
+2,,id_usuario,Integer," "," ",X," "," ",19
 1,tipo_carga,,760,656,21,
-2,X,id_caraga,Integer,,,X,,
+2,X,id_caraga,Integer,,,X
 4,2,1,2,1,0,"0,5",11,0,0,,0,0,0
 4,1,12,2,1,0,"0,5",14,0,0,,0,0,0
 4,1,15,2,1,0,"0,5",17,0,0,,0,0,0

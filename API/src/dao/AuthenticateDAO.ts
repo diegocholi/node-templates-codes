@@ -13,41 +13,6 @@ class Authenticate extends BaseDAO {
     })
   }
 
-  authenticate(event: any) {
-    let { req, res } = event
-    req
-    res
-    // Atribuindo o body da requisição no atributo post
-    // let body = req.body;
-    //Buscando email existe no banco
-    // conection.query(
-    //   "SELECT * FROM users WHERE email = ?",
-    //   body["email"],
-    //   async (err: any, rows: any) => {
-    //     if (!err) {
-    //       try {
-    //         let userData = rows[0];
-    //         // Verificando se email existe e senhas comferem
-    //         if (
-    //           rows[0] &&
-    //           (await bcryptjs.compare(body["password"], userData["password"]))
-    //         ) {
-    //           userData["password"] = undefined;
-    //           userData["passwordResetToken"] = undefined;
-    //           userData["passwordResetExpires"] = undefined;
-    //           let token = gerarToken(userData["id"]);
-    //           return res.status(200).send({ userData, token });
-    //         } else {
-    //           return res.status(400).send(mensage.erroUserPassword);
-    //         }
-    //       } catch (err) {
-    //         return res.status(400).send(mensage.erroConectionServer);
-    //       }
-    //     }
-    //   }
-    // );
-  }
-
   passwordRecovery(event: any) {
     let { req, res } = event
     req

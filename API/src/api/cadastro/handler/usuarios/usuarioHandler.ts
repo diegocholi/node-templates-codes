@@ -1,19 +1,21 @@
-import UserController from "../../controller/usuario/UserController";
+import UserController from '../../controller/usuario/UserController'
 
 const usuarioHandler = (event: any) => {
-  var user: any = new UserController();
-  let route = event.req.route.path;
+  var user: UserController = new UserController()
+  let route = event.req.route.path
   switch (route) {
-    case "/user/register":
-      user.insert(event);
-      return;
-    case "/user/:id":
-      user.get(event);
-      user = undefined;
-      return;
+    case '/user':
+      user.list(event)
+      return
+    case '/user/register':
+      user.insertUser(event)
+      return
+    case '/user/:id_usuario':
+      user.get(event)
+      return
     default:
-      return;
+      return
   }
-};
+}
 
-export default usuarioHandler;
+export default usuarioHandler

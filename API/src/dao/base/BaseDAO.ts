@@ -1,31 +1,58 @@
 // import conection from "../ConectionDAO";
 // import mensage from "../../config/mensage.json";
 import { Filters, DAOConfig } from './interfaceBaseDAO'
-import Database from '../Database'
+import Database from './Database'
 
 class BaseDAO extends Database {
-  private static table: string
+  public static table: string
 
   constructor({ table }: DAOConfig) {
     super()
     BaseDAO.table = table
   }
 
-  public first(event: any) {
-    event
+  public insert(req: any) {
+    let keys = Object.keys(req.body)
+    let params: any = []
+
+    keys.map((key) => {
+      params.push(req.body[key])
+    })
+
+    let sql = `INSERT INTO ${BaseDAO.table} (
+      ${keys.map((key: any, id: Number) => {
+        if (id === keys.length - 1) return `${key}`
+        return `${key}`
+      })}
+    ) 
+    VALUES (
+      ${params.map((item: any, id: any) => {
+        item
+        if (id === params.length - 1) return '?'
+        return '?'
+      })}
+    )`
+
+    let response = Database.insert(sql, params)
+    return response
   }
 
-  public get(event: any) {
-    let { res } = event
+  public get(key: any, id: Number) {
+    var sql = `SELECT * FROM ${BaseDAO.table} WHERE ${key} = ${id}`
+    return BaseDAO.first(sql)
+  }
+
+  public list(req: any) {
     var sql = `SELECT * FROM ${BaseDAO.table}`
-    var filters = BaseDAO.gerarFiltrosParamsEvent(event)
-    sql = BaseDAO.gerarFiltrosSql(sql, filters)
-    BaseDAO.first(sql, res)
+    var filters = BaseDAO.getFiltrosParamsReq(req)
+    if (filters[0].campo && filters[0].campo)
+      sql = BaseDAO.gerarFiltrosSql(sql, filters)
+
+    return BaseDAO.first(sql)
   }
 
-  public static first(sql: string, res: any) {
+  public static first(sql: string) {
     let response = Database.query(sql)
-    response.then((result) => res.status(200).send(result))
     return response
   }
 
@@ -51,9 +78,7 @@ class BaseDAO extends Database {
     return this.connection.format(sql, valores)
   }
 
-  public static gerarFiltrosParamsEvent(event: any): [Filters] {
-    const { req } = event
-
+  public static getFiltrosParamsReq(req: any): [Filters] {
     let filters: [Filters] = [
       {
         campo: '',
@@ -63,56 +88,60 @@ class BaseDAO extends Database {
 
     let autoComplete: boolean = false
 
-    // Buscamos as keys e seus respectivos valores
-    let keys = Object.keys(req.query)
-    let values = Object.values(req.query)
+    if (req.query) {
+      // Buscamos as keys e seus respectivos valores
+      let keys = Object.keys(req.query)
+      let values = Object.values(req.query)
 
-    // Verificamos se existem filtro com autocomplete
-    keys.map((item: string, index: number) => {
-      if (item === 'autocomplete') {
-        keys.splice(index)
-        values.splice(index)
-        autoComplete = true
-      }
-    })
-
-    // Inserimos nos valores da quary nos filters
-    keys.map((item: string, index: number) => {
-      if (!filters[0].campo)
-        return (filters = [
-          {
-            campo: String(item),
-            valor: String(values[index]),
-            autoComplete: autoComplete,
-          },
-        ])
-      return filters.push({
-        campo: String(item),
-        valor: String(values[index]),
-        autoComplete: autoComplete,
+      // Verificamos se existem filtro com autocomplete
+      keys.map((item: string, index: number) => {
+        if (item === 'autocomplete') {
+          keys.splice(index)
+          values.splice(index)
+          autoComplete = true
+        }
       })
-    })
 
-    // Buscamos as keys e seus respectivos valores
-    keys = Object.keys(req.params)
-    values = Object.values(req.params)
-
-    // Inserimos nos valores da params nos filters
-    keys.map((item: string, index: number) => {
-      if (!filters[0].campo)
-        return (filters = [
-          {
-            campo: String(item),
-            valor: String(values[index]),
-            autoComplete: autoComplete,
-          },
-        ])
-      return filters.push({
-        campo: String(item),
-        valor: String(values[index]),
-        autoComplete: autoComplete,
+      // Inserimos nos valores da quary nos filters
+      keys.map((item: string, index: number) => {
+        if (!filters[0].campo)
+          return (filters = [
+            {
+              campo: String(item),
+              valor: String(values[index]),
+              autoComplete: autoComplete,
+            },
+          ])
+        return filters.push({
+          campo: String(item),
+          valor: String(values[index]),
+          autoComplete: autoComplete,
+        })
       })
-    })
+    }
+
+    if (req.params) {
+      // Buscamos as keys e seus respectivos valores
+      let keys = Object.keys(req.params)
+      let values = Object.values(req.params)
+
+      // Inserimos nos valores da params nos filters
+      keys.map((item: string, index: number) => {
+        if (!filters[0].campo)
+          return (filters = [
+            {
+              campo: String(item),
+              valor: String(values[index]),
+              autoComplete: autoComplete,
+            },
+          ])
+        return filters.push({
+          campo: String(item),
+          valor: String(values[index]),
+          autoComplete: autoComplete,
+        })
+      })
+    }
 
     return filters
   }

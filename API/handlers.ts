@@ -1,22 +1,22 @@
-import { usuarioHandler, autenticacaoHandler } from "./src/api/";
+import { usuarioHandler, autenticacaoHandler } from './src/api/'
 
 export const handlers = [
   {
     handler: autenticacaoHandler,
     routes: [
       {
-        route: "/authenticate",
-        method: "post",
+        route: '/authenticate',
+        method: 'post',
         middlewareValidate: false,
       },
       {
-        route: "/forgotPassword",
-        method: "post",
+        route: '/forgotPassword',
+        method: 'post',
         middlewareValidate: false,
       },
       {
-        route: "/forgotPassword/newPassword",
-        method: "post",
+        route: '/forgotPassword/newPassword',
+        method: 'post',
         middlewareValidate: false,
       },
     ],
@@ -25,15 +25,20 @@ export const handlers = [
     handler: usuarioHandler,
     routes: [
       {
-        route: "/user/:id",
-        method: "get",
+        route: '/user',
+        method: 'get',
         middlewareValidate: true,
       },
       {
-        route: "/user/register",
-        method: "post",
+        route: '/user/:id_usuario',
+        method: 'get',
+        middlewareValidate: true,
+      },
+      {
+        route: '/user/register',
+        method: 'post',
         middlewareValidate: false,
       },
     ],
   },
-];
+]

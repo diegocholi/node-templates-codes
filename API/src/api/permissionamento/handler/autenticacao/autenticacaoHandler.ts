@@ -1,24 +1,21 @@
-import AutenticateController from "../../controller/autenticacao/AuthenticateController";
+import AutenticateController from '../../controller/autenticacao/AuthenticateController'
 
 const autenticacaoHandler = (event: any) => {
-  var autenticate: any = new AutenticateController();
-  let route = event.req.route.path;
+  var autenticate: AutenticateController = new AutenticateController()
+  let route = event.req.route.path
   switch (route) {
-    case "/authenticate":
-      autenticate.get(event);
-      autenticate = undefined;
-      return;
-    case "/forgotPassword/newPassword":
-      autenticate.update(event);
-      autenticate = undefined;
-      return;
-    case "/forgotPassword":
-      autenticate.insert(event);
-      autenticate = undefined;
-      return;
+    case '/authenticate':
+      autenticate.login(event)
+      return
+    case '/forgotPassword/newPassword':
+      autenticate.update(event)
+      return
+    case '/forgotPassword':
+      autenticate.insert(event)
+      return
     default:
-      return;
+      return
   }
-};
+}
 
-export default autenticacaoHandler;
+export default autenticacaoHandler

@@ -11,10 +11,7 @@ export const startApilication = () => {
 
   // Setando parametros para decode de URL
   api.use(bodyParser.urlencoded({ extended: false }))
-  // Setando aplicação para aceitar requisições em Json
-  api.use(bodyParser.json())
-  // Setando parametros para decode de URL
-  api.use(bodyParser.urlencoded({ extended: false }))
+
   // Portar que a api vai servir
   api.listen(3000)
 
