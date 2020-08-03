@@ -1,8 +1,9 @@
-import React from 'react'
 import './App.css'
-import Mapa from './src/components/Mapa'
+import React from 'react'
+import Theme from './src/theme/Theme'
+
 function App() {
-  return <Mapa />
+  return <Theme />
 }
 
 export default App
