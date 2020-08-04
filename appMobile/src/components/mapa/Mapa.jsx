@@ -5,7 +5,7 @@ import GeolocationComponent from '../geolocation/GeolocationComponent'
 import LocalizacaoService from '../../database/sql-lite/service/LocalizacaoService'
 
 import socketIOClient from 'socket.io-client'
-const ENDPOINT = 'http://192.168.100.20:4040'
+const ENDPOINT = 'http://192.168.100.44:4040'
 
 const Mapa = () => {
   const [userPossition, setUserPossition] = useState({})

@@ -1,10 +1,10 @@
 import React from 'react'
-import Mapa from '../../components/Mapa'
+import Mapa from '../../components/mapa/Mapa'
 
 const DashMapa = () => (
   <div className='title'>
     <h4>Dash Mapa</h4>
-    <Mapa />:
+    <Mapa tracking={true} />:
   </div>
 )
 
