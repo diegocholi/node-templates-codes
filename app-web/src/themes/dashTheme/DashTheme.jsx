@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import ToolbarContainer from './toolbar/ToolbarContainer'
 import DrawerContainer from './drawer/DrawerContainer'
-import rotas from '../../rotas'
+import rotas from '../../rotas/dashRotas'
 
-const Theme = () => {
+const DashTheme = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
 
   const handleDrawerOpen = () => {
@@ -42,4 +42,4 @@ const Theme = () => {
   )
 }
 
-export default Theme
+export default DashTheme

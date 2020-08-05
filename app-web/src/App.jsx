@@ -1,9 +1,15 @@
 import './App.css'
 import React from 'react'
-import Theme from './src/theme/Theme'
+import ThemesRouter from './ThemesRouter'
+
+import { AppProvider } from './contexts/AppContext'
 
 function App() {
-  return <Theme />
+  return (
+    <AppProvider>
+      <ThemesRouter />
+    </AppProvider>
+  )
 }
 
 export default App

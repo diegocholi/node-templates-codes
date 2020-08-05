@@ -19,8 +19,12 @@ import MoreIcon from '@material-ui/icons/MoreVert'
 import Avatar from '@material-ui/core/Avatar'
 import constants from '../../../constants'
 
+import useApp from '../../../contexts/AppContext'
+
 const ToolbarContainer = (props) => {
   const { handleDrawerOpen, open } = props
+  const { logout } = useApp()
+
   const classes = useStyles()
 
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -42,6 +46,12 @@ const ToolbarContainer = (props) => {
     handleMobileMenuClose()
   }
 
+  const handleExitApp = () => {
+    setAnchorEl(null)
+    handleMobileMenuClose()
+    logout()
+  }
+
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget)
   }
@@ -58,7 +68,7 @@ const ToolbarContainer = (props) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleExitApp}>Sair</MenuItem>
     </Menu>
   )
 

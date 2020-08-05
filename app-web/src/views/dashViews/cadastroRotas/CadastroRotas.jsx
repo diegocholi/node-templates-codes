@@ -1,5 +1,5 @@
 import React from 'react'
-import Mapa from '../../components/mapa/Mapa'
+import Mapa from '../../../components/mapa/Mapa'
 
 const CadastroRotas = () => {
   return (

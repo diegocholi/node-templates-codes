@@ -3,9 +3,9 @@ import HomeIcon from '@material-ui/icons/Home'
 import Map from '@material-ui/icons/Map'
 import Public from '@material-ui/icons/Public'
 
-import Home from './src/views/home/Home'
-import DashMapa from './src/views/dashMapa/DashMapa'
-import CadastroRotas from './src/views/cadastroRotas/CadastroRotas'
+import Home from '../views/dashViews/home/Home'
+import DashMapa from '../views/dashViews/dashMapa/DashMapa'
+import CadastroRotas from '../views/dashViews/cadastroRotas/CadastroRotas'
 
 export default [
   {
