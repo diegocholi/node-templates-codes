@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 // import CircularProgress from '@material-ui/core/CircularProgress'
 import CircularProgress from '../components/circularProgress/CircularProgress'
+
 const AppContext = createContext({ signed: false })
 
 export const AppProvider = ({ children }) => {

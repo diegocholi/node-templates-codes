@@ -1,11 +1,12 @@
 import React from 'react'
 import Mapa from '../../../components/mapa/Mapa'
+import { Title, FiltersToolBar } from '../../../components'
 
 const CadastroRotas = () => {
   return (
     <div>
-      <h4>Cadastro de Rotas</h4>
-      <Mapa directions={true} />
+      <FiltersToolBar />
+      <Title>Cadastro de Rotas</Title>
     </div>
   )
 }

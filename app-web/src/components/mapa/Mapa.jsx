@@ -34,12 +34,12 @@ const Mapa = (props) => {
   }
 
   useEffect(() => {
-    let mounted = true
+    let mountComponent = false
 
     /**
      * Se o mapa não estiver instanciado o instanciamos
      */
-    if (!mapaState) {
+    if (!mapaState && !mountComponent) {
       const mapa = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
@@ -63,9 +63,9 @@ const Mapa = (props) => {
           'top-left'
         )
       }
-      if (mounted) setMapaState(mapa)
+      setMapaState(mapa)
     } else {
-      if (tracking && mounted) {
+      if (tracking) {
         mapaState.loadImage(
           'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
           (error, image) => {
@@ -111,9 +111,9 @@ const Mapa = (props) => {
         })
       }
     }
-    console.log(feature)
-    mounted = false
-    return () => mounted
+    return () => {
+      mountComponent = true
+    }
   }, [feature, mapaState, zoom, directions, tracking])
 
   return <MapaComponent mapContainer={mapContainer} />
