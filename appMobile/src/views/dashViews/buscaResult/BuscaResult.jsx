@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View } from 'react-native'
-import SearchBottom from '../../components/searchBottom/SearchBottom'
+import SearchBottom from '../../../components/searchBottom/SearchBottom'
 
 const BuscaResult = (props) => {
   const { route, navigation } = props
@@ -8,7 +8,7 @@ const BuscaResult = (props) => {
   const [searchState, setSearchState] = useState('')
 
   useEffect(() => {
-    setSearchState(search)
+    if (search) setSearchState(search)
   }, [search])
 
   const handleSearch = () => {

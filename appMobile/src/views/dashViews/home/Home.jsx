@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native'
-import SearchBottom from '../../components/searchBottom/SearchBottom'
-import Mapa from '../../components/mapa/Mapa'
+import SearchBottom from '../../../components/searchBottom/SearchBottom'
+import Mapa from '../../../components/mapa/Mapa'
 
 const Home = (props) => {
   const { navigation } = props

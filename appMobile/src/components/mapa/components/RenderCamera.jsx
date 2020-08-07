@@ -1,9 +1,7 @@
 import React from 'react'
 import MapboxGL from '@react-native-mapbox-gl/maps'
 
-const RenderCamera = (props) => {
-  const { userPossition } = props
-
+const RenderCamera = () => {
   return (
     <>
       <MapboxGL.Camera

@@ -12,7 +12,6 @@ const GeolocationComponent = (props) => {
     if (hasLocationPermision) {
       Geolocation.watchPosition(
         (position) => {
-          // console.log(logCoordenadas)
           setUserPossition({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -48,5 +47,4 @@ const GeolocationComponent = (props) => {
   }
   return <></>
 }
-
 export default GeolocationComponent

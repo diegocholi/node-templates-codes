@@ -23,10 +23,13 @@ const styles = StyleSheet.create({
   },
 })
 
-const MapaComponent = (props) => {
-  const { userPossition } = props
+const MapaComponent = () => {
   useEffect(() => {
-    MapboxGL.setTelemetryEnabled(false)
+    let mountComponent = false
+    if (!mountComponent) MapboxGL.setTelemetryEnabled(false)
+    return () => {
+      mountComponent = true
+    }
   }, [])
 
   return (
@@ -37,7 +40,7 @@ const MapaComponent = (props) => {
         attributionEnabled={true}
         // styleURL={MapboxGL.StyleURL.Dark}
       >
-        <RenderCamera userPossition={userPossition} />
+        <RenderCamera />
       </MapboxGL.MapView>
     </SafeAreaView>
   )
