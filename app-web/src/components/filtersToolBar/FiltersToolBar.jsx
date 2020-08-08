@@ -1,5 +1,5 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
+// import TextField from '@material-ui/core/TextField'
 
 import { ContainerStyle, Button } from './style'
 import SearchIcon from '@material-ui/icons/Search'
@@ -10,7 +10,7 @@ const FiltersToolBar = () => {
         <Button>
           <SearchIcon />
         </Button>
-        <TextField
+        {/* <TextField
           id='filled-textarea'
           label='Multiline Placeholder'
           placeholder='Placeholder'
@@ -20,7 +20,7 @@ const FiltersToolBar = () => {
           onChange={() => {
             console.log('ok')
           }}
-        />
+        /> */}
       </div>
     </ContainerStyle>
   )

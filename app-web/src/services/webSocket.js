@@ -24,6 +24,7 @@ const webSocket = (response, setResponse) => {
 
   socket.on('tracking', (request) => {
     request = JSON.parse(request)
+    console.log(request)
     setResponse([
       ...response,
       // Aqui vai o array com todos os markers

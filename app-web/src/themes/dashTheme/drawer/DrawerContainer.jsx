@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import clsx from 'clsx'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
@@ -83,4 +83,4 @@ const DrawerContainer = (props) => {
   )
 }
 
-export default DrawerContainer
+export default memo(DrawerContainer)

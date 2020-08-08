@@ -6,9 +6,14 @@ export const AppContext = createContext({ signed: true })
 const AppProvider = ({ children }) => {
   const [signed, setSigned] = useState(false)
   useEffect(() => {
-    getData('token').then((localToken) => {
-      if (localToken) setSigned(localToken)
-    })
+    let mounted = true
+    if (mounted)
+      getData('token').then((localToken) => {
+        if (localToken) setSigned(localToken)
+      })
+    return () => {
+      mounted = false
+    }
   }, [])
 
   const auth = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, memo } from 'react'
 import { StyleSheet, SafeAreaView } from 'react-native'
 import RenderCamera from './RenderCamera'
 import MapboxGL from '@react-native-mapbox-gl/maps'
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
 
 const MapaComponent = () => {
   useEffect(() => {
-    let mountComponent = false
-    if (!mountComponent) MapboxGL.setTelemetryEnabled(false)
+    let mountComponent = true
+    if (mountComponent) MapboxGL.setTelemetryEnabled(false)
     return () => {
-      mountComponent = true
+      mountComponent = false
     }
   }, [])
 
@@ -46,4 +46,4 @@ const MapaComponent = () => {
   )
 }
 
-export default MapaComponent
+export default memo(MapaComponent)

@@ -12,13 +12,21 @@ export const AppProvider = ({ children }) => {
   })
 
   useEffect(() => {
-    let tokenStorage = localStorage.getItem('@RNAuth:token')
-    if (tokenStorage) {
-      setAppState({
-        token: tokenStorage,
-      })
+    let mounted = true
+    if (mounted) {
+      let tokenStorage = localStorage.getItem('@RNAuth:token')
+
+      if (tokenStorage) {
+        setAppState({
+          token: tokenStorage,
+        })
+      }
+      setProgressState(false)
     }
-    setProgressState(false)
+
+    return () => {
+      mounted = false
+    }
   }, [])
 
   const logout = () => {

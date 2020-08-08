@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ContainerStyle = styled.div`
   background-color: #fff;
-  height: 15vh;
+  height: 10vh;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -14,8 +14,8 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: #bfda4f;
   border: none;
-  height: 10vh;
-  width: 15vh;
+  height: 5vh;
+  width: 10vh;
   margin: 2.7vh;
   border-radius: 5px;
   float: right;

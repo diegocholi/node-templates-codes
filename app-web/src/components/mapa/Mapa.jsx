@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, memo } from 'react'
 
 import mapboxgl from 'mapbox-gl'
 import webSocket from '../../services/webSocket'
@@ -29,23 +29,17 @@ const Mapa = (props) => {
     },
   ])
 
-  if (tracking) {
-    webSocket(feature, setFeature)
-  }
-
   useEffect(() => {
-    let mountComponent = false
-
-    /**
-     * Se o mapa não estiver instanciado o instanciamos
-     */
-    if (!mapaState && !mountComponent) {
-      const mapa = new mapboxgl.Map({
+    let mountComponent = true
+    if (mountComponent) {
+      let mapa = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
         center: [-49.2218399, -25.29995835],
         zoom: zoom,
       })
+
+      // Verificação de Mapa modo rotas
       if (directions) {
         mapa.addControl(
           new MapboxDirections({
@@ -64,22 +58,39 @@ const Mapa = (props) => {
         )
       }
       setMapaState(mapa)
-    } else {
-      if (tracking) {
-        mapaState.loadImage(
-          'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-          (error, image) => {
-            if (error) throw error
-            const idImageChecker = Number(String(Math.random()).split('.')[1])
-            mapaState.addImage(`custom-marker-${idImageChecker}`, image)
 
-            try {
+      // Verificação de Mapa modo rastreamento
+      if (tracking) {
+        webSocket(feature, setFeature)
+      }
+    }
+
+    return () => {
+      mountComponent = false
+    }
+  }, [directions, zoom, feature, tracking])
+
+  useEffect(() => {
+    let mounteComponent = true
+    /**
+     * Se o mapa não estiver instanciado o instanciamos
+     */
+    if (tracking && mapaState) {
+      mapaState.loadImage(
+        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+        (error, image) => {
+          if (error) throw error
+          const idImageChecker = Number(String(Math.random()).split('.')[1])
+          mapaState.addImage(`custom-marker-${idImageChecker}`, image)
+
+          try {
+            if (mounteComponent)
               mapaState.getSource('points').setData({
                 type: 'FeatureCollection',
                 features: feature,
               })
-            } catch (err) {
-              console.log('Points não iniciados' + err)
+          } catch (err) {
+            if (mounteComponent)
               // Add a GeoJSON source with 3 points.
               mapaState.addSource('points', {
                 type: 'geojson',
@@ -88,35 +99,35 @@ const Mapa = (props) => {
                   features: feature,
                 },
               })
-            }
-
-            // Add a symbol layer
-            mapaState.addLayer({
-              id: `symbols-${idImageChecker}`,
-              type: 'symbol',
-              source: 'points',
-              layout: {
-                'icon-image': `custom-marker-${idImageChecker}`,
-              },
-            })
           }
-        )
-        mapaState.flyTo({
-          center: [
-            feature[feature.length - 1].geometry.coordinates[0],
-            feature[feature.length - 1].geometry.coordinates[1],
-          ],
-          speed: 0.5,
-          zoom: zoom,
-        })
-      }
+
+          // Add a symbol layer
+          mapaState.addLayer({
+            id: `symbols-${idImageChecker}`,
+            type: 'symbol',
+            source: 'points',
+            layout: {
+              'icon-image': `custom-marker-${idImageChecker}`,
+            },
+          })
+        }
+      )
+      mapaState.flyTo({
+        center: [
+          feature[feature.length - 1].geometry.coordinates[0],
+          feature[feature.length - 1].geometry.coordinates[1],
+        ],
+        speed: 0.5,
+        zoom: zoom,
+      })
     }
+
     return () => {
-      mountComponent = true
+      mounteComponent = false
     }
-  }, [feature, mapaState, zoom, directions, tracking])
+  }, [feature, mapaState, zoom, tracking])
 
   return <MapaComponent mapContainer={mapContainer} />
 }
 
-export default Mapa
+export default memo(Mapa)

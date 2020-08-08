@@ -7,6 +7,7 @@ const CadastroRotas = () => {
     <div>
       <FiltersToolBar />
       <Title>Cadastro de Rotas</Title>
+      <Mapa directions={true} />
     </div>
   )
 }

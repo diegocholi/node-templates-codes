@@ -12,13 +12,13 @@ const Menu = (props) => {
   const [userPossition, setUserPossition] = useState([])
 
   useEffect(() => {
-    let mountComponent = false
-    if (!mountComponent)
+    let mountComponent = true
+    if (mountComponent)
       LocalizacaoService.findAll().then((rows) => {
         setUserPossition(rows.raw())
       })
     return () => {
-      mountComponent = true
+      mountComponent = false
     }
   }, [])
 

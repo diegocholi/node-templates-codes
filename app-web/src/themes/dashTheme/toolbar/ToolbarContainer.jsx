@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import clsx from 'clsx'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -194,4 +194,4 @@ const ToolbarContainer = (props) => {
   )
 }
 
-export default ToolbarContainer
+export default memo(ToolbarContainer)
