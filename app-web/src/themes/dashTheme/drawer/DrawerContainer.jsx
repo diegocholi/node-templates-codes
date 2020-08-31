@@ -9,7 +9,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import useStyles from '../consts/useStyles'
+import useStyles from '../style/useStyles'
 import { useTheme } from '@material-ui/core/styles'
 
 import { Link, Switch, Route } from 'react-router-dom'

@@ -1,24 +1,25 @@
 import styled from 'styled-components'
-
-export const ContainerStyle = styled.div`
-  background-color: #fff;
-  height: 10vh;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  align-items: right;
-`
-
-export const Button = styled.button`
+import colors from '../../themes/consts/themeColor'
+export const SearchButton = styled.button`
   cursor: pointer;
-  background-color: #bfda4f;
+  background-color: ${colors.navbarColor};
   border: none;
-  height: 5vh;
-  width: 10vh;
-  margin: 2.7vh;
+  color: #fff;
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
   border-radius: 5px;
   float: right;
 `
 
-export const Input = styled.input``
+export const AddButton = styled.button`
+  background-color: ${colors.navbarColor};
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  width: 90px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+`

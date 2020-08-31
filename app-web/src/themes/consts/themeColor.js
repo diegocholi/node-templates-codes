@@ -7,10 +7,10 @@ export default {
   segundary: '#4E4B5B',
   dark2: '#565264',
   dark3: '#565264',
-  dark4: '#706677',
+  navbarColor: '#706677',
 
   dark5: '#706677',
-  dark6: '#A6808C',
+  primaryLight: '#A6808C',
   dark7: '#CCB7AE',
   dark8: '#D6CFCB',
   dark9: '#DAD3D0',

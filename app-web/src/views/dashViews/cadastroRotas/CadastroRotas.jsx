@@ -1,13 +1,35 @@
 import React from 'react'
-import Mapa from '../../../components/mapa/Mapa'
-import { Title, FiltersToolBar } from '../../../components'
+import { FiltersToolBar, InputText, Title } from '../../../components'
 
 const CadastroRotas = () => {
   return (
     <div>
-      <FiltersToolBar />
-      <Title>Cadastro de Rotas</Title>
-      <Mapa directions={true} />
+      <FiltersToolBar
+        rightButton
+        addClick={() => console.log('Add OK')}
+        searchClick={() => console.log('searchClick OK')}
+      >
+        <InputText
+          id={'standard-basic-1'}
+          label={'Teste'}
+          placeholder={'Teste'}
+          onChange={() => console.log('Teste')}
+        />
+        <InputText
+          id={'standard-basic-2'}
+          label={'Teste'}
+          placeholder={'Teste'}
+          onChange={() => console.log('Teste')}
+        />
+        <InputText
+          id={'standard-basic-3'}
+          label={'Teste'}
+          placeholder={'Teste'}
+          onChange={() => console.log('Teste')}
+        />
+      </FiltersToolBar>
+      <Title horizontalLine>Cadastro de Rotas</Title>
+      {/*<Mapa directions={true} />*/}
     </div>
   )
 }

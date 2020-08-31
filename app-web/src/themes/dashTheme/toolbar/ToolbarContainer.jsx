@@ -1,12 +1,11 @@
 import React, { memo } from 'react'
 import clsx from 'clsx'
 import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import useStyles from '../consts/useStyles'
+import useStyles from '../style/useStyles'
 import InputBase from '@material-ui/core/InputBase'
 import Badge from '@material-ui/core/Badge'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -18,6 +17,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 import MoreIcon from '@material-ui/icons/MoreVert'
 import Avatar from '@material-ui/core/Avatar'
 import constants from '../../../constants'
+
+import { ToolbarStyled } from './styled'
 
 import useApp from '../../../contexts/AppContext'
 
@@ -122,7 +123,7 @@ const ToolbarContainer = (props) => {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <ToolbarStyled>
           <IconButton
             color='inherit'
             aria-label='open drawer'
@@ -186,7 +187,7 @@ const ToolbarContainer = (props) => {
               <MoreIcon />
             </IconButton>
           </div>
-        </Toolbar>
+        </ToolbarStyled>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
