@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState, memo } from 'react'
-
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 import mapboxgl from 'mapbox-gl'
 import webSocket from '../../services/webSocket'
 import MapaComponent from './components/MapaComponent'
-
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 import '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions.css'
+import { useTheme } from '@material-ui/core/styles'
 
 const token_api_mapa =
   'pk.eyJ1IjoiZGllZ29jaG9saSIsImEiOiJja2FyY3dxbzUwaXdiMzRuMDRpMHlkNmY1In0.HU7BRHun3uPl2KkLDPWZPA'
@@ -13,9 +13,17 @@ const token_api_mapa =
 mapboxgl.accessToken = token_api_mapa
 
 const Mapa = (props) => {
-  const { tracking = false, zoom = 10, directions = false } = props
+  const {
+    tracking = false,
+    zoom = 10,
+    directions = false,
+    height = 400,
+    width = 400,
+    position,
+  } = props
   const mapContainer = useRef(null)
   const [mapaState, setMapaState] = useState(null)
+  const theme = useTheme()
 
   const [feature, setFeature] = useState([
     // Aqui vai o array com todos os markers
@@ -127,7 +135,20 @@ const Mapa = (props) => {
     }
   }, [feature, mapaState, zoom, tracking])
 
-  return <MapaComponent mapContainer={mapContainer} />
+  return (
+    <div
+      style={{
+        height: useMediaQuery(theme.breakpoints.down('sm')) ? '100%' : '100vh',
+      }}
+    >
+      <MapaComponent
+        position={position}
+        height={height}
+        width={width}
+        mapContainer={mapContainer}
+      />
+    </div>
+  )
 }
 
 export default memo(Mapa)

@@ -1,15 +1,24 @@
 import React from 'react'
-
-const styles = {
-  width: '100vw',
-  height: 'calc(100vh - 80px)',
-  position: 'absolute',
-}
+import { makeStyles } from '@material-ui/core'
 
 const MapaComponent = (props) => {
-  const { mapContainer = null } = props
-
-  return <div ref={(el) => (mapContainer.current = el)} style={styles} />
+  const { mapContainer = null, height, width, position = 'relative' } = props
+  const useStyle = makeStyles({
+    containerDivMap: {
+      width: width,
+      height: height,
+      position: position,
+      marginBottom: '5vh',
+      marginTop: '5vh',
+    },
+  })
+  const classes = useStyle()
+  return (
+    <div
+      ref={(el) => (mapContainer.current = el)}
+      className={classes.containerDivMap}
+    />
+  )
 }
 
 export default MapaComponent

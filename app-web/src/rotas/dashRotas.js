@@ -3,9 +3,7 @@ import HomeIcon from '@material-ui/icons/Home'
 import Map from '@material-ui/icons/Map'
 import Public from '@material-ui/icons/Public'
 
-import Home from '../views/dashViews/home/Home'
-import DashMapa from '../views/dashViews/dashMapa/DashMapa'
-import CadastroRotas from '../views/dashViews/cadastroRotas/CadastroRotas'
+import { Home, DashMapa, Viagens } from '../views/dashViews'
 
 export default [
   {
@@ -22,8 +20,8 @@ export default [
   },
   {
     incon: <Map />,
-    path: '/cadastro-rotas',
-    component: CadastroRotas,
+    path: '/cadastro-viagens',
+    component: Viagens,
     titlePage: 'Entregas',
   },
 ]

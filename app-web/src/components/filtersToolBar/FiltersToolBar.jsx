@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import { SearchButton, AddButton } from './style'
+import { SearchButton, AddButton } from './styled'
 
 import SearchIcon from '@material-ui/icons/Search'
 import Add from '@material-ui/icons/Add'
