@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import ViajensComponent from './components/ViajensComponent'
+import ViagensComponent from './components/ViagensComponent'
 
 const Viagens = () => {
   const [openAddViagens, setOpenAddViagens] = useState(false)
 
   return (
-    <ViajensComponent
+    <ViagensComponent
       openAddViagens={openAddViagens}
       setOpenAddViagens={setOpenAddViagens}
     />
