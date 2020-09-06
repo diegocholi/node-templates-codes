@@ -1,1 +1,1 @@
-export { default as usuarioHandler } from "./usuarios/usuarioHandler";
+export { default as usuarioHandler } from './usuariosWeb/usuarioHandler'

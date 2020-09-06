@@ -1,4 +1,4 @@
-import UserController from '../../controller/usuario/UserController'
+import UserController from '../../controller/usuarioWeb/UserController'
 
 const usuarioHandler = (event: any) => {
   var user: UserController = new UserController()

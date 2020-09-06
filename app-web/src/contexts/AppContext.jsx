@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     let mounted = true
     if (mounted) {
-      let tokenStorage = localStorage.getItem('@RNAuth:token')
+      let tokenStorage = localStorage.getItem('@TRANS:token')
 
       if (tokenStorage) {
         setAppState({
@@ -34,7 +34,7 @@ export const AppProvider = ({ children }) => {
   }
 
   const auth = (value) => {
-    localStorage.setItem('@RNAuth:token', value)
+    localStorage.setItem('@TRANS:token', value)
     setAppState({ token: value })
   }
 

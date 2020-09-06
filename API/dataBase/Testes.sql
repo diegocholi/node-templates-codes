@@ -1,4 +1,5 @@
-
+use transp_base_db;
+DROP DATABASE transp_base_db;
 SELECT * FROM tipo_usuario;
 INSERT INTO tipo_usuario (nome) VALUES ('Transportadora');
 
@@ -10,5 +11,6 @@ INSERT INTO usuarios
 VALUES('Diego Choli Conceição', 'diegocholi@gmail.com', '975907', NOW(), null, 1);
 
 
-SELECT * FROM usuarios WHERE id_usuario = 12;
+SELECT * FROM usuario_web;
 
+select * from per_usuario;

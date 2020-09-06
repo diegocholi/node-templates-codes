@@ -1,22 +1,41 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
+import TextComponent from './components/TextComponent'
+import PasswdComponent from './components/PasswdComponent'
 
 const InputText = (props) => {
   const {
     id = 'standard-basic',
     onChange = undefined,
-    placeholder = 'Placeholder',
+    placeholder = '',
     label = 'Multiline Placeholder',
+    fullWidth = false,
+    type = 'text', // Types: text, password
+    value = null,
   } = props
-  return (
-    <TextField
-      id={id}
-      label={label}
-      placeholder={placeholder}
-      onChange={onChange}
-      fullWidth
-    />
-  )
+
+  if (type === 'text')
+    return (
+      <TextComponent
+        id={id}
+        onChange={onChange}
+        placeholder={placeholder}
+        label={label}
+        fullWidth={fullWidth}
+        type={type}
+      />
+    )
+
+  if (type === 'password')
+    return (
+      <PasswdComponent
+        id={id}
+        onChange={onChange}
+        placeholder={placeholder}
+        label={label}
+        fullWidth={fullWidth}
+        value={value}
+      />
+    )
 }
 
 export default InputText

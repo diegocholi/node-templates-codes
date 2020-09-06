@@ -12,18 +12,21 @@ export default ({ setOpenAddViagens }) => (
       label={'Teste'}
       placeholder={'Teste'}
       onChange={() => console.log('Teste')}
+      fullWidth
     />
     <InputText
       id={'standard-basic-2'}
       label={'Teste'}
       placeholder={'Teste'}
       onChange={() => console.log('Teste')}
+      fullWidth
     />
     <InputText
       id={'standard-basic-3'}
       label={'Teste'}
       placeholder={'Teste'}
       onChange={() => console.log('Teste')}
+      fullWidth
     />
   </FiltersToolBar>
 )

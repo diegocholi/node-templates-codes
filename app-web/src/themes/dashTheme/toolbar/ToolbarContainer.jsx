@@ -16,7 +16,7 @@ import MailIcon from '@material-ui/icons/Mail'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import MoreIcon from '@material-ui/icons/MoreVert'
 import Avatar from '@material-ui/core/Avatar'
-import constants from '../../../constants'
+import constants from '../../../constants/webSocket'
 
 import { ToolbarStyled } from './styled'
 

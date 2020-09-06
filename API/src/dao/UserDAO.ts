@@ -2,7 +2,7 @@
 // import conection from "./ConectionDAO";
 import BaseDAO from './base/BaseDAO'
 
-class User extends BaseDAO {
+class UserDAO extends BaseDAO {
   constructor() {
     super({
       table: 'usuarios',
@@ -22,4 +22,4 @@ class User extends BaseDAO {
   }
 }
 
-export default User
+export default UserDAO
