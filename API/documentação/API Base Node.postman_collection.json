@@ -1,177 +1,216 @@
 {
 	"info": {
-		"_postman_id": "abb0a611-db10-4166-8c3d-5f826494d6e2",
-		"name": "API Base Node",
+		"_postman_id": "ead854bc-f659-4423-b199-ab4df26928df",
+		"name": "Transp. SA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\": \"diegocholi@gmail.com\",\n\t\"password\": \"975907\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Get usuário",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk5MzMwMzMyLCJleHAiOjE1OTk0MTY3MzJ9.Vwnlkj4D51PqIzT2VUoFBOWC1y54aBEFgPVwR9xzZSI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/user/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "127.0.0.1:3000/authenticate",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"authenticate"
-					]
+				{
+					"name": "List Usuários",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTk5MzMwMzMyLCJleHAiOjE1OTk0MTY3MzJ9.Vwnlkj4D51PqIzT2VUoFBOWC1y54aBEFgPVwR9xzZSI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/user",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\": \"Diego Choli Conceição\",\n\t\"email\": \"diegocholi@gmail.com\",\n\t\"senha\": \"975907\",\n\t\"id_tipo_usuario\": 1,\n\t\"id_per_usuario\": 1 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/user/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\": \"diegocholi@gmail.com\",\n\t\"password\": \"975907\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Novo password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1/forgotPassword/newPassword",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"forgotPassword",
+								"newPassword"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "127.0.0.1:3000/user/register",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get usuário",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkwMTAzNzI3LCJleHAiOjE1OTAxOTAxMjd9.LjBqMWipn_xKVaaxjh91BQykD7uFs5yPcvzrq2xforM",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"diegocholi@gmail.com\",\n\t\"senha\": \"975907\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/authenticate",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"authenticate"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "127.0.0.1:3000/user/5",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Enviar token de recuperação - email",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"email\": \"diegocholi@gmail.com\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "javascript"
+				{
+					"name": "Enviar token de recuperação - email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"diegocholi@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/forgotPassword",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"forgotPassword"
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "127.0.0.1:3000/forgotPassword",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "3000",
-					"path": [
-						"forgotPassword"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Novo password",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "127.0.0.1/forgotPassword/newPassword",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"path": [
-						"forgotPassword",
-						"newPassword"
-					]
-				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "36620b1d-a79f-4b3e-a63f-da4baf1b3f0a",
+				"id": "e42178cd-1ace-4857-a406-de14a3b1f41e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -181,7 +220,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d8037465-e58e-44c4-b168-565607fb4fa4",
+				"id": "5cd481d1-14e7-4339-b043-ab360862df96",
 				"type": "text/javascript",
 				"exec": [
 					""
