@@ -35,6 +35,10 @@ const Login = () => {
   const handlerLoginButton = () => {
     if (inputUser.email && inputUser.senha) {
       fetchLogin()
+      setInputUser({
+        email: '',
+        senha: '',
+      })
     }
   }
 
@@ -58,6 +62,7 @@ const Login = () => {
       handleOpenForm={handleOpenForm}
       handleClosedForm={handleClosedForm}
       openForm={openForm}
+      statusRequestLogin={statusRequestLogin}
     />
   )
 }

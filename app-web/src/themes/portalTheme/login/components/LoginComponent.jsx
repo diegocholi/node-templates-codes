@@ -10,6 +10,7 @@ export default ({
   handleClosedForm,
   handlerLoginButton,
   openForm,
+  statusRequestLogin,
 }) =>
   openForm ? (
     <FormComponent
@@ -17,6 +18,7 @@ export default ({
       handlePasswdChange={handlePasswdChange}
       handlerLoginButton={handlerLoginButton}
       handleClosedForm={handleClosedForm}
+      statusRequestLogin={statusRequestLogin}
     />
   ) : (
     <div

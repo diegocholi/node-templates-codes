@@ -8,6 +8,8 @@ export const startApilication = () => {
   let cors = require('cors')
   // Setando aplicação para aceitar requisições em Json
   api.use(bodyParser.json())
+
+  // Configuração de cors
   api.use(
     cors({
       origin: '*',

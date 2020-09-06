@@ -132,3 +132,11 @@ export const OpenFormButton = styled.button`
     animation: rotate-scale-up-diag-1 0.7s linear backwards;
   }
 `
+
+export const ProgressDiv = styled.div`
+  padding: 75px 0px 0px 0px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
