@@ -1,5 +1,5 @@
 import React from 'react'
-import useApp from './contexts/AppContext'
+import { useApp } from './contexts/'
 import DashTheme from './themes/dashTheme/DashTheme'
 import PortalTheme from './themes/portalTheme/PortalTheme'
 

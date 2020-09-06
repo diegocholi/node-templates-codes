@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from '../../themes/consts/themeColor'
+import colors from '../../constants/themeColor'
 export const SearchButton = styled.button`
   cursor: pointer;
   background-color: ${colors.navbarColor};

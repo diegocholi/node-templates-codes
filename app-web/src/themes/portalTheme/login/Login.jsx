@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import useApp from '../../../contexts/AppContext'
+import { useApp } from '../../../contexts/'
 import { useRequest } from '../../../hooks/apiService'
 import LoginComponent from './components/LoginComponent'
+
 const Login = () => {
-  const { auth } = useApp()
+  const { auth, openAlert } = useApp()
   const [openForm, setOpenForm] = useState(false)
   const [inputUser, setInputUser] = useState({
     email: '',
@@ -27,6 +28,7 @@ const Login = () => {
         auth(data.token)
       },
       onError: (error) => {
+        openAlert('Teste')
         console.log('Erro ao efetuar o login')
       },
     }

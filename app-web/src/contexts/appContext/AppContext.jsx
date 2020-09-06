@@ -1,10 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import CircularProgress from '../components/circularProgress/CircularProgress'
+import CircularProgress from '../../components/circularProgress/CircularProgress'
+import { Alert } from '../../components'
 
 const AppContext = createContext({ signed: false })
 
 export const AppProvider = ({ children }) => {
   const [progessState, setProgressState] = useState(true)
+  const [alert, setAlert] = useState({ open: false, mensagem: '' })
 
   const [appState, setAppState] = useState({
     token: false,
@@ -28,6 +30,14 @@ export const AppProvider = ({ children }) => {
     }
   }, [])
 
+  const openAlert = (mensagem) => {
+    setAlert({ ...alert, open: true, mensagem: mensagem })
+    setTimeout(
+      () => setAlert({ ...alert, open: false, mensagem: undefined }),
+      10000
+    )
+  }
+
   const logout = () => {
     localStorage.clear()
     setAppState({ token: null })
@@ -46,8 +56,10 @@ export const AppProvider = ({ children }) => {
         token: appState.token,
         auth,
         logout,
+        openAlert,
       }}
     >
+      {alert.open ? <Alert mensagem={alert.mensagem} /> : null}
       {children}
     </AppContext.Provider>
   )

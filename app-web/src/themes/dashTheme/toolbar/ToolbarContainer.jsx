@@ -20,7 +20,7 @@ import constants from '../../../constants/webSocket'
 
 import { ToolbarStyled } from './styled'
 
-import useApp from '../../../contexts/AppContext'
+import { useApp } from '../../../contexts/'
 
 const ToolbarContainer = (props) => {
   const { handleDrawerOpen, open } = props
