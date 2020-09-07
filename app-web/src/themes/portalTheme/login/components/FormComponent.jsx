@@ -1,6 +1,6 @@
 import React from 'react'
 import { InputText, Form, CircularProgress } from '../../../../components/'
-import { Container, Div, Button, ExitButton, ProgressDiv } from '../styled'
+import { Container, Div, Button, ExitButton } from '../styled'
 import Grid from '@material-ui/core/Grid'
 
 export default ({
@@ -39,9 +39,7 @@ export default ({
           </Grid>
         </Form>
       ) : (
-        <ProgressDiv>
-          <CircularProgress />
-        </ProgressDiv>
+        <CircularProgress />
       )}
     </Div>
   </Container>

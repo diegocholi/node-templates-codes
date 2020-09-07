@@ -28,7 +28,7 @@ const Login = () => {
         auth(data.token)
       },
       onError: (error) => {
-        openAlert('Teste')
+        openAlert('Login ou senha não conferem')
         console.log('Erro ao efetuar o login')
       },
     }

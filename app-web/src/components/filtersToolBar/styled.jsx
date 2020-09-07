@@ -18,7 +18,7 @@ export const AddButton = styled.button`
   border: none;
   cursor: pointer;
   height: 60px;
-  width: 87px;
+  width: 70px;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 5px;

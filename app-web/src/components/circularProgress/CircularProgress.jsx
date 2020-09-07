@@ -4,9 +4,10 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 const CircularProgressUI = () => (
   <CircularProgress
     style={{
-      position: 'absolute',
+      margin: 0,
       top: '50%',
       left: '50%',
+      marginRight: '-50%',
     }}
     disableShrink
     color='inherit'

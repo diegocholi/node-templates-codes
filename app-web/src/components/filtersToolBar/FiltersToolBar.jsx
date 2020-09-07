@@ -19,7 +19,11 @@ const FiltersToolBar = (props) => {
           borderRadius: '5px',
         }}
         spacing={1}
-        xs={rightButton ? 11 : 12}
+        xs={rightButton ? 8 : 12} // extra-pequeno: 0px
+        sm={rightButton ? 11 : 12} // pequeno: 600px
+        md={rightButton ? 11 : 12} // médio: 960px
+        lg={rightButton ? 11 : 12} // grande: 1280px
+        xl={rightButton ? 11 : 12} // extra-grande: 1920px
       >
         {/*Se existir somente um campo colocamos na tela se não iteramos os valores*/}
         {props.children.length ? (

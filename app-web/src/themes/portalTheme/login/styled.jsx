@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   position: fixed; /* Set the navbar to fixed position */
   right: 0;
-  margin-right: 20px;
+  margin: 20px 20px 20px 20px;
 
   @-webkit-keyframes scale-up-tr {
     0% {
@@ -39,7 +39,6 @@ export const Container = styled.div`
 
 export const Div = styled.div`
   padding: 40px 40px 40px 40px;
-  width: 500px;
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 10px 10px 12px -4px rgba(112, 102, 119, 0.75);
@@ -131,12 +130,4 @@ export const OpenFormButton = styled.button`
     -webkit-animation: rotate-scale-up-diag-1 0.7s linear backwards;
     animation: rotate-scale-up-diag-1 0.7s linear backwards;
   }
-`
-
-export const ProgressDiv = styled.div`
-  padding: 75px 0px 0px 0px;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `

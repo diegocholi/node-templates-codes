@@ -1,20 +1,13 @@
 import React from 'react'
 import { Container, MensageDiv, ExitButton } from './styled'
-import Grid from '@material-ui/core/Grid'
 
-const Alert = ({ mensagem }) => {
+const Alert = ({ mensagem, handleClosedAlert, backgroundColor, color }) => {
   return (
-    <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Grid container spacing={3}>
-            <Grid item xs={6}>
-              <ExitButton>X</ExitButton>
-            </Grid>
-            <MensageDiv>{mensagem}</MensageDiv>
-          </Grid>
-        </Grid>
-      </Grid>
+    <Container backgroundColor={backgroundColor}>
+      <ExitButton onClick={handleClosedAlert} color={color}>
+        X
+      </ExitButton>
+      <MensageDiv color={color}>{mensagem}</MensageDiv>
     </Container>
   )
 }
