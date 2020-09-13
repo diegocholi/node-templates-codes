@@ -26,12 +26,43 @@ const H1 = styled.h1`
   font-size: 25px;
   margin-top: 25px;
   margin-left: 25px;
+  /* PIXEL 2*/
+  @media only screen and (max-width: 414px) {
+    font-size: 16px;
+  }
+  /* MOTO g4*/
+  @media only screen and (max-width: 360px) {
+    font-size: 16px;
+  }
+  /* Galaxy Fold */
+  @media only screen and (max-width: 280px) {
+    font-size: 12px;
+  }
+`
+
+const ContainerHR = styled.div`
+  /* PIXEL 2*/
+  @media only screen and (max-width: 414px) {
+    width: 250px;
+  }
+  /* MOTO g4*/
+  @media only screen and (max-width: 360px) {
+    width: 250px;
+  }
+  /* Galaxy Fold */
+  @media only screen and (max-width: 280px) {
+    width: 170px;
+  }
 `
 
 const H1Component = ({ children, horizontalLine = false }) => (
   <>
     <H1>{children}</H1>
-    {horizontalLine ? <Hr /> : undefined}
+    {horizontalLine ? (
+      <ContainerHR>
+        <Hr />
+      </ContainerHR>
+    ) : undefined}
   </>
 )
 
