@@ -1,11 +1,9 @@
-import React from 'react'
-import { useApp } from './contexts/'
-import DashTheme from './themes/dashTheme/DashTheme'
-import PortalTheme from './themes/portalTheme/PortalTheme'
+import { useAppContext } from './contexts/AppContext/AppContext'
+export interface LoginHandlerProps {}
 
-const ThemesRouter = () => {
-  const { token } = useApp()
-  return token ? <DashTheme /> : <PortalTheme />
+const LoginHandler: React.FC<LoginHandlerProps> = () => {
+  const { isAuthenticate } = useAppContext()
+  return isAuthenticate ? <p>Login</p> : <p>Logout</p>
 }
 
-export default ThemesRouter
+export default LoginHandler
